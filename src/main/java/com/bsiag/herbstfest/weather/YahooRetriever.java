@@ -12,7 +12,7 @@ public class YahooRetriever {
 
 	public InputStream retrieve(String woeid) throws Exception {
 		log.info("Retrieving Weather Data");
-		String url = "http://weather.yahooapis.com/forecastrss?w=" + woeid + "&u=c";
+		String url = "https://query.yahooapis.com/v1/public/yql?q=select+%2A+from+weather.forecast+where+woeid%3D" + woeid + "&format=xml";
 		URLConnection conn = new URL(url).openConnection();
 		return conn.getInputStream();
 	}
